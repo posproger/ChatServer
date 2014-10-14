@@ -224,7 +224,7 @@ void CSClientManager::onNewChannelMessage(CSMessage &csmsg) {
             joAnswer["msg"]=csmsg.toString();
             QJsonDocument jdAnswer(joAnswer);
             foreach ( QWebSocket *client, m_channelClients[index] ) {
-                if ( client && m_accounts[client] && (!csmsg.getAccInitiator() || m_accounts[client]!=csmsg.getAccInitiator()) ) {
+                if ( client && m_accounts[client] ) { //&& (!csmsg.getAccInitiator() || m_accounts[client]!=csmsg.getAccInitiator()) ) {
                     emit sendTextToClient(client, QString(jdAnswer.toJson()));
                 }
             }

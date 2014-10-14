@@ -220,6 +220,7 @@ void CSClientManager::onNewChannelMessage(CSMessage &csmsg) {
             joAnswer["c"]=QString("MSG");
             joAnswer["id"]=QString("0");
             joAnswer["res"]=QString("IN");
+            joAnswer["ch"]=index;
             joAnswer["msg"]=csmsg.toString();
             QJsonDocument jdAnswer(joAnswer);
             foreach ( QWebSocket *client, m_channelClients[index] ) {

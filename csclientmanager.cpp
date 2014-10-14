@@ -161,6 +161,7 @@ CSMessage CSClientManager::parseStringMessage(QString msg, QWebSocket *client) {
                     CSChannel* ch = m_channels[chid];
                     if ( ch ) {
                         joAnswer["res"]=QString("OK");
+                        joAnswer["ch"] = chid;
                         QJsonArray chArray;
                         foreach( CSMessage csmsg, ch->getAllMessages() ) {
                             chArray.append(csmsg.toString());
